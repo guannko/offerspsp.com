@@ -1,0 +1,6 @@
+{
+  "repo": "guannko/Annoris",
+  "path": "protocols/jean-claude-tool-protocol-v1.md",
+  "updated_at": "2025-08-15T10:30:00Z",
+  "note": "Startup must load this protocol before anything else"
+}
