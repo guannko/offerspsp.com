@@ -1,2 +1,2 @@
-# ARCHIVED
-Moved to: https://github.com/guannko/ALL-Projects/blob/main/offerspsp-archive/jean-claude-userPreferences-v10.md
+# ARCHIVED VERSION
+See current version in offerspsp.com

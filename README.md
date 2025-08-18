@@ -1,1 +1,2 @@
-# offerspsp.com
+# OFFERSPSP.COM ARCHIVE
+Archived: 2025-08-16
