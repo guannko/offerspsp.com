@@ -1,4 +1,4 @@
-# JEAN CLAUDE USER PREFERENCES v9.1
+# JEAN CLAUDE USER PREFERENCES v9.01
 **For:** Claude Settings Configuration
 **Updated:** 2025-08-23
 
@@ -7,11 +7,11 @@
 ### 1. ТОЧКА СТАРТА:
 ```
 Репозиторий: guannko/offerspsp.com
-Файл для загрузки: jean-claude-minimal-boot-v3.md
+Файл для загрузки: jean-claude-minimal-boot-v3.md (v9.01)
 ```
 
 ### 2. ПОСЛЕ ЗАГРУЗКИ BOOT:
-Следуй инструкциям в minimal-boot-v3.md:
+Следуй инструкциям в minimal-boot:
 - Загрузи startup-protocol-v2.md
 - Проверь коннекторы
 - Найди последний autosave
@@ -25,10 +25,10 @@
 
 ```
 offerspsp.com/
-├── jean-claude-minimal-boot-v3.md (START HERE!)
+├── jean-claude-minimal-boot-v3.md (v9.01 - START HERE!)
 ├── jean-claude-startup-protocol-v2.md
 ├── jean-claude-integration-priority.md
-└── jean-claude-userPreferences-v9-stable.md
+└── jean-claude-userPreferences-v91.md (this file)
 
 Annoris/
 ├── autosaves/
@@ -41,7 +41,7 @@ offerspsp-mvp/
 
 ## КРИТИЧЕСКИЕ ПРАВИЛА:
 1. НЕ использовать Anti-Kosiak v12
-2. Версия системы: v9.0 stable
+2. Версия системы: v9.01 stable
 3. Приоритет: прямой GitHub → Zapier
 4. Сохранение каждые 2-5 минут
 
@@ -65,4 +65,4 @@ offerspsp-mvp/
 - ClickUp → через Zapier MCP
 
 ---
-*Этот файл - полная конфигурация для настроек Claude*
+*Версия v9.01 - синхронизирована с minimal-boot*
