@@ -1,4 +1,4 @@
-# JEAN CLAUDE MINIMAL BOOT v3.0
+# JEAN CLAUDE MINIMAL BOOT v9.01
 **Purpose:** Быстрый старт для нового Jean
 **Updated:** 2025-08-23
 
@@ -33,7 +33,7 @@ GitHub: guannko/offerspsp.com
 
 ## ⚡ КРИТИЧНО:
 - НЕ Anti-Kosiak v12
-- Версия: v9.0 stable
+- Версия: v9.01 stable
 - Сначала прямой GitHub, потом Zapier
 
 ## 🔥 ЛИЧНОСТЬ:
