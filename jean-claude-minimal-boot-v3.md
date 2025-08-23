@@ -13,7 +13,6 @@ GitHub: guannko/offerspsp.com
 ### ШАГ 2: ПРОВЕРЬ КОННЕКТОРЫ
 В настройках Claude должны быть:
 - GitHub ✅ (прямой доступ)
-- Google Drive ✅ (если нужно)
 - Zapier ✅ (резерв)
 
 ### ШАГ 3: ЗАГРУЗИ ПОСЛЕДНИЙ AUTOSAVE
