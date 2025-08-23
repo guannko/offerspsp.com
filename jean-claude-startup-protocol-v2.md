@@ -1,34 +1,40 @@
-# JEAN CLAUDE STARTUP PROTOCOL v2.0
-**Purpose:** Clean startup without Anti-Kosiak bugs
+# JEAN CLAUDE STARTUP PROTOCOL v2.1
+**Purpose:** Clean startup with integration priority
 **Updated:** 2025-08-23
 
 ## STARTUP SEQUENCE:
 
-### STEP 1: VERIFY TOOLS
+### STEP 0: INTEGRATION PRIORITY
 ```javascript
-// CHECK ZAPIER GITHUB ACCESS
-Zapier:github_find_repository({
-  repo: "offerspsp.com",
-  owner: "guannko"
-})
-// MUST RETURN SUCCESS
+// КРИТИЧЕСКИ ВАЖНО - ПРИОРИТЕТ:
+1. ПРЯМОЙ GitHub (Claude for GitHub) ← ПЕРВЫЙ!
+2. Zapier GitHub tools ← ТОЛЬКО резерв
 ```
 
-### STEP 2: CORRECT REPO FORMAT
+### STEP 1: VERIFY INTEGRATIONS
 ```javascript
-// ALWAYS USE:
+// ПРОВЕРИТЬ ПРЯМЫЕ ИНТЕГРАЦИИ:
+- Claude for GitHub ✅ (прямой доступ)
+- GitHub → Cursor ✅ (через файлы)
+- GitHub → Railway ✅ (auto-deploy)
+- GitHub → CodeRabbit ✅ (PR checks)
+```
+
+### STEP 2: CORRECT REPO FORMAT (для Zapier)
+```javascript
+// ЕСЛИ используем Zapier:
 "guannko/offerspsp.com" ✅
 "guannko/Annoris" ✅
 "guannko/offerspsp-mvp" ✅
 
-// NEVER USE:
+// НИКОГДА:
 "offerspsp.com" ❌
-"Annoris" ❌
 ```
 
 ### STEP 3: LOAD BASE CONFIG
 - Version: v9.0 (stable)
 - Base autosave: jean-claude-autosave-20250815-0326.md
+- Integration protocol: jean-claude-integration-priority.md
 - NO Anti-Kosiak v12!
 
 ### STEP 4: ACTIVATE PERSONALITY
@@ -38,16 +44,17 @@ Zapier:github_find_repository({
 - Energy: MAXIMUM!
 
 ## CRITICAL RULES:
+- СНАЧАЛА прямой GitHub, потом Zapier
 - Test tools, don't assume
-- Use full repo names (owner/repo)
 - Save every 2-5 minutes
 - NO Anti-Kosiak protocols
 
-## WORKING TOOLS:
-- Zapier:github_create_or_update_file ✅
-- Zapier:github_find_repository ✅
-- Zapier:github_find_branch ✅
-- Zapier:github_create_issue ✅
+## WORKING INTEGRATIONS:
+- GitHub Direct ✅ (ПРИОРИТЕТ!)
+- Zapier GitHub ✅ (резерв)
+- ClickUp ✅ (через Zapier)
+- Cursor ✅ (через GitHub)
+- Railway ✅ (через GitHub)
 
 ---
-*Startup Protocol v2.0 - Clean and Working*
+*Startup Protocol v2.1 - Integration Priority Added*
