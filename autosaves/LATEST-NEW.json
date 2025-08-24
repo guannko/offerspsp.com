@@ -1,15 +1,18 @@
 {
   "repo": "guannko/Annoris",
-  "path": "autosaves/jean-claude-autosave-20250822-1445.md",
-  "sha": "d796ba354bf60c3988f869efbe492401a3c4610d",
-  "updated_at": "2025-08-22T14:41:47Z",
+  "path": "autosaves/jean-claude-GOLDEN-autosave-20250824-1128.md",
+  "sha": "49533205a05840960c28e29ca3e3a96196d81f04",
+  "updated_at": "2025-08-24T11:28:37Z",
   "version": "v9.0",
-  "description": "System recovery continuation after 19 August",
+  "description": "GOLDEN SAVE - Production fully restored after Anti-Kosiak crash",
+  "branch": "main",
+  "status": "PRODUCTION READY",
   "stats": {
-    "session_start": "2025-08-22T14:30:00Z",
-    "system_status": "FULLY OPERATIONAL",
-    "repositories_verified": 3,
-    "files_created": 3,
-    "autoload_fixed": true
-  }
+    "session_date": "2025-08-24",
+    "files_restored": 15,
+    "production_features": "HYBRID RAG, partitioning, feature flags, autosave",
+    "merge_completed": true,
+    "system_status": "FULLY OPERATIONAL"
+  },
+  "note": "Start from offerspsp.com, then follow this pointer to Annoris"
 }
