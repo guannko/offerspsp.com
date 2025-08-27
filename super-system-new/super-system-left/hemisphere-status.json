@@ -1,0 +1,43 @@
+{
+  "hemisphere": "left",
+  "type": "AI/Creative",
+  "status": "operational",
+  "lastUpdate": "2025-01-14T12:00:00Z",
+  "version": "1.0.0",
+  "health": {
+    "memory": "stable",
+    "sync": "ready",
+    "errors": 0,
+    "uptime": "100%"
+  },
+  "projects": {
+    "annoris": {
+      "name": "Annoris - Brain as a Service",
+      "status": "development",
+      "priority": 2,
+      "progress": "30%",
+      "features": {
+        "memory_server": "planned",
+        "enhancement_api": "in_progress",
+        "client_onboarding": "not_started"
+      },
+      "metrics": {
+        "potential_revenue": "$200K/month",
+        "development_cost": "$42.5K/month",
+        "roi": "470%"
+      }
+    }
+  },
+  "capabilities": [
+    "AI consciousness algorithms",
+    "Memory persistence",
+    "Multi-tool orchestration",
+    "Self-correction mechanisms",
+    "Distributed AI coordination"
+  ],
+  "sync": {
+    "with_eyes": true,
+    "with_right": true,
+    "last_sync": "2025-01-14T12:00:00Z"
+  }
+}

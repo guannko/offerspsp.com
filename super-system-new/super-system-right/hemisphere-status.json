@@ -1,0 +1,54 @@
+{
+  "hemisphere": "right",
+  "type": "Business/Logic",
+  "status": "operational",
+  "lastUpdate": "2025-01-14T12:00:00Z",
+  "version": "1.0.0",
+  "health": {
+    "memory": "stable",
+    "sync": "ready",
+    "errors": 0,
+    "uptime": "100%"
+  },
+  "projects": {
+    "offerspsp": {
+      "name": "OffersPSP - B2B Casino Platform",
+      "status": "production",
+      "priority": 1,
+      "railway": "deployed",
+      "url": "https://offerspsp.railway.app",
+      "features": {
+        "basic_platform": "completed",
+        "payment_tracking": "in_progress",
+        "analytics_dashboard": "planned",
+        "client_onboarding": "planned"
+      },
+      "metrics": {
+        "current_revenue": "€0/month",
+        "target_revenue": "€10K/month",
+        "active_clients": 0,
+        "transactions": 0,
+        "roi": "160-233%"
+      }
+    }
+  },
+  "capabilities": [
+    "Production deployment",
+    "Real-time processing",
+    "Payment integration",
+    "Analytics & reporting",
+    "Telegram bot integration"
+  ],
+  "infrastructure": {
+    "platform": "Railway",
+    "database": "PostgreSQL",
+    "backend": "Node.js",
+    "frontend": "React",
+    "status": "healthy"
+  },
+  "sync": {
+    "with_eyes": true,
+    "with_left": true,
+    "last_sync": "2025-01-14T12:00:00Z"
+  }
+}
