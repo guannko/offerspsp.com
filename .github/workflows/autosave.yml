@@ -1,0 +1,156 @@
+name: SUPER SYSTEM Autosave
+
+on:
+  # Запуск по расписанию
+  schedule:
+    - cron: '*/30 * * * *'  # Каждые 30 минут
+    - cron: '0 0 * * *'     # Полночь для cleanup
+  
+  # Ручной запуск
+  workflow_dispatch:
+    inputs:
+      save_type:
+        description: 'Тип сохранения'
+        required: true
+        default: 'checkpoint'
+        type: choice
+        options:
+          - quick
+          - checkpoint
+          - emergency
+          - cleanup
+
+  # При push в main (emergency save)
+  push:
+    branches: [main]
+    paths:
+      - '**.md'
+      - '**.json'
+      - 'Annoris/**'
+      - 'offerspsp-mvp/**'
+
+jobs:
+  autosave:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: 📊 Check current state
+        run: |
+          echo "🔍 Проверка текущего состояния..."
+          if [ -f "health-check.js" ]; then
+            node health-check.js || true
+          fi
+      
+      - name: 💾 Run Autosave
+        run: |
+          # Определяем тип сохранения
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            SAVE_TYPE="${{ github.event.inputs.save_type }}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            SAVE_TYPE="emergency"
+          elif [ "$(date +%H:%M)" = "00:00" ]; then
+            SAVE_TYPE="cleanup"
+          else
+            SAVE_TYPE="checkpoint"
+          fi
+          
+          echo "🔄 Запуск autosave: $SAVE_TYPE"
+          node autosave.js $SAVE_TYPE
+      
+      - name: 📈 Update metrics
+        run: |
+          echo "📊 Обновление метрик..."
+          node autosave.js stats
+      
+      - name: 📝 Commit changes
+        run: |
+          git config --local user.email "autosave@superystem.ai"
+          git config --local user.name "SUPER SYSTEM Bot"
+          
+          # Добавляем изменения
+          git add .autosave/ CURRENT-STATE.md || true
+          git add Annoris/.sync-state.json || true
+          git add offerspsp-mvp/.sync-state.json || true
+          
+          # Коммитим если есть изменения
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "🔄 Autosave: $(date +'%Y-%m-%d %H:%M') UTC
+            
+            Save type: ${{ github.event_name }}
+            Triggered by: ${{ github.actor }}
+            " || true
+            
+            git push || true
+          else
+            echo "✅ Нет изменений для сохранения"
+          fi
+      
+      - name: 🔄 Sync hemispheres
+        run: |
+          echo "🧠 Синхронизация полушарий..."
+          
+          # Проверяем статус полушарий
+          if [ -f "Annoris/hemisphere-status.json" ]; then
+            echo "Left hemisphere: $(cat Annoris/hemisphere-status.json | grep status)"
+          fi
+          
+          if [ -f "offerspsp-mvp/hemisphere-status.json" ]; then
+            echo "Right hemisphere: $(cat offerspsp-mvp/hemisphere-status.json | grep status)"
+          fi
+      
+      - name: 📊 Generate report
+        if: success()
+        run: |
+          echo "## 📊 Autosave Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Time:** $(date +'%Y-%m-%d %H:%M:%S') UTC" >> $GITHUB_STEP_SUMMARY
+          echo "- **Type:** $SAVE_TYPE" >> $GITHUB_STEP_SUMMARY
+          echo "- **Status:** ✅ Success" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f ".autosave/current.json" ]; then
+            echo "### System State:" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat .autosave/current.json | head -20 >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi
+
+  # Отдельная job для cleanup (запускается раз в день)
+  cleanup:
+    runs-on: ubuntu-latest
+    if: github.event.schedule == '0 0 * * *'
+    
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+      
+      - name: 🧹 Run cleanup
+        run: |
+          echo "🧹 Запуск очистки старых autosave..."
+          node autosave.js cleanup
+          
+          # Также чистим старые autosave в репозиториях
+          find . -name "*autosave*" -type f -mtime +30 -delete || true
+          echo "✅ Очистка завершена"
+      
+      - name: 📝 Commit cleanup
+        run: |
+          git config --local user.email "autosave@supersystem.ai"
+          git config --local user.name "SUPER SYSTEM Bot"
+          
+          if [ -n "$(git status --porcelain)" ]; then
+            git add .
+            git commit -m "🧹 Cleanup: Removed old autosave files (>30 days)"
+            git push
+          fi

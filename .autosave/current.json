@@ -1,0 +1,61 @@
+{
+  "timestamp": "2025-08-27T10:24:11.333Z",
+  "system": {
+    "health": "operational",
+    "version": "1.0.0",
+    "uptime": 0.030187906
+  },
+  "projects": {
+    "offerspsp": {
+      "status": "production",
+      "priority": 1,
+      "tasks": [
+        {
+          "completed": false,
+          "text": "Implement real-time payment tracking"
+        },
+        {
+          "completed": false,
+          "text": "Build analytics dashboard"
+        },
+        {
+          "completed": false,
+          "text": "Prepare for €10K/month scaling"
+        }
+      ]
+    },
+    "annoris": {
+      "status": "development",
+      "priority": 2,
+      "tasks": [
+        {
+          "completed": false,
+          "text": "Deploy Memory Server (PostgreSQL)"
+        },
+        {
+          "completed": false,
+          "text": "Create Enhancement API"
+        },
+        {
+          "completed": false,
+          "text": "Onboard first pilot clients"
+        }
+      ]
+    }
+  },
+  "hemispheres": {},
+  "memory": {},
+  "tasks": {},
+  "metrics": {
+    "autosave_count": 0,
+    "storage_used": "12K",
+    "oldest_save": "2025-08-27"
+  },
+  "git": {
+    "branch": "cursor/send-greeting-to-jean-42b0",
+    "modified_files": 4,
+    "last_commit": "6c0ed36 Create SUPER SYSTEM: Initialize brain architecture and core files",
+    "has_changes": true
+  },
+  "save_type": "quick"
+}
