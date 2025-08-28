@@ -1,0 +1,22 @@
+[
+  {
+    "id": "deploy-production",
+    "type": "business",
+    "action": "Deploy to production and start earning",
+    "time": "1 hour",
+    "impact": "revenue",
+    "risk": "medium",
+    "score": 0.885,
+    "confidence": 0.79408739718026,
+    "criteria": {
+      "urgency": 0.7,
+      "impact": 1,
+      "feasibility": 1,
+      "alignment": 1,
+      "risk": 0.5
+    },
+    "reasoning": "This will have significant positive impact. This is highly feasible with current resources",
+    "timestamp": "2025-08-28T07:59:59.425Z",
+    "result": "pending"
+  }
+]
